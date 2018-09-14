@@ -1,29 +1,89 @@
-<!DOCTYPE html>
-<html lang="">
+<!doctype html>
+
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>webcam filter....</title>
+	<link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text|Nunito" rel="stylesheet">
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
-
-<body>
-
-<script src="webcam.js"></script>
-
-<div id="my_camera" style="width:320px; height:240px;"></div>
-<div id="my_result"></div>
-
-<script language="JavaScript">
-    Webcam.attach( '#my_camera' );
-
-    function take_snapshot() {
-        Webcam.snap( function(data_uri) {
-            document.getElementById('my_result').innerHTML = '<img src="'+data_uri+'"/>';
-        } );
-    }
-</script>
-
-<a href="javascript:void(take_snapshot())">Take Snapshot</a>
+<body>	
+    <div class="title">
+       <h1>Webcame Filter Effects</h1>
+        <a class="github-button" href="https://github.com/uglykiki" aria-label="Follow @uglykiki on GitHub">
+        Follow @uglykiki
+        </a>
+    </div>
     
+    <!---load camera--->
+    <div id="my_camera"></div>
+    
+    <!-- A button for taking snaps -->
+    <div class="top">
+		<form>
+			<input type="button" value="START!" onClick="start_snapping()">
+			<input type="button" value="RESET" onClick="stop_snapping()">
+<!--			<input type="button" value="reset" onClick="erase_snaps()">-->
+		</form>
+	</div>
+	<div class="fake-footer">Copyright © 2018 uglykiki All Rights Reserved</div>
+	
+	 <!---show results--->
+	<div class="bottom">
+		<div id="results">
+		</div>
+	</div>
+	
+	
+	<!-- First, include the Webcam.js JavaScript Library -->
+	<script type="text/javascript" src="js/webcam.min.js"></script>
+	
+	<!-- Configure a few settings and attach camera -->
+	<script language="JavaScript">
+		Webcam.set({
+			width: 960,
+			height: 360,
+            dest_width: 960,
+            dest_height:360,
+			image_format: 'jpeg',
+			jpeg_quality: 100
+		});
+		Webcam.attach( '#my_camera' );
+	</script>
+	
+	<!-- Code to handle taking the snapshot and displaying it locally -->
+	<script language="JavaScript">
+		var timer = null;
+		function take_snapshot() {
+			// take snapshot and get image data
+			Webcam.snap( function(data_uri) {
+				// display results in page
+				var img = new Image();
+				img.src = data_uri;
+				
+				document.getElementById('results').appendChild( img );
+			} );
+		}
+		
+		function start_snapping() {
+			if (!timer) {
+				take_snapshot();
+				timer = setInterval( take_snapshot, 300 );
+			}
+		}
+		
+		function stop_snapping() {
+			if (timer) {
+				clearTimeout( timer );
+				timer = null;
+			}
+		}
+		
+		function erase_snaps() {
+			document.getElementById('results').innerHTML = '';
+		}
+	</script>
+	
 </body>
 </html>
