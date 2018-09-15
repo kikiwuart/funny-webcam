@@ -7,14 +7,23 @@ body {
 }
 .title{
     text-align: center;
-    font-family: 'Libre Barcode 128 Text', cursive;
-    margin-top: 2%;
-    color:#e61c5d;
-    
+    font-family: 'Nunito', sans-serif;
+    margin-top: 2%;  
 }
 h1{
     font-size:48px;
     height:24px;
+    font-family: 'Libre Barcode 128 Text', cursive;
+    color:#e61c5d;
+}
+p{
+    color:white;
+    font-size:12px;
+    letter-spacing: 2px;
+    width:300px;
+    height:20px;
+    text-align:center;
+    margin: 0px auto;
 }
 
 form { 
@@ -27,7 +36,7 @@ form {
 form > input { 
     margin-right: 15px; 
     padding:4px;
-    font-family: 'Nunito', sans-serif;
+    
     font-size:16px;
 }
 input{
@@ -37,12 +46,12 @@ input{
     border-radius: 100px;
     transition: ease-in-out .3s;
 }
-input[value=Start]{
+input[value=Run]{
     color:#ffbd39;
     background-color:#3a0088;
     border-style:none;
 }
-input[value=Start]:hover{
+input[value=Run]:hover{
     background-color:#e61c5d;
 }
 
@@ -52,7 +61,9 @@ input[value=Reset]{
     border: solid 2px #3a0088;
 }
 input[value=Reset]:hover{
-    opacity:0.2;
+    color:white;
+    background-color:#ffbd39;
+    border: solid 2px white;
 }
 
 .fake-footer{
@@ -61,9 +72,41 @@ input[value=Reset]:hover{
     padding: 8px 0px 8px 0px;
     text-align:center;
     font-family: 'Nunito', sans-serif;
-    font-size:11px;
+    font-size:14px;
     color: #3a0088;
 }
+a:hover{
+    color:#e61c5d;
+}
+
+.top{
+    width:100%;
+    height:80px;
+    display:flex;
+    justify-content: center;
+    
+}
+a, input{
+    cursor:pointer;
+}
+
+#my_camera{
+    display:flex;
+    justify-content: center;
+    margin-top:3%;
+    padding-left:13%;
+    filter: invert(100%);
+}
+
+#glitch{
+    top:-20px;
+    width: 100%;
+    height: 0.5px;
+    position: absolute;
+    z-index:999;
+    background-color: #ffbd39;
+}
+
 .bottom{
     text-align:left;
 /*    background-color:black;*/
@@ -78,34 +121,18 @@ input[value=Reset]:hover{
 }
 
 #results > img { 
-    padding: 36px 4px 24px 4px;
+    padding: 16px 4px 16px 4px;
     width: 200px; 
     height: 120px; 
 }
 
-#my_camera{
-    display:flex;
-    justify-content: center;
-    margin-top:3%;
-    padding-left:13%;
-    filter: blur(15px);
-}
-.top{
-    width:100%;
-    height:80px;
-    display:flex;
-    justify-content: center;
-    
-}
-a, input{
-    cursor:pointer;
-}
 
 #alert{
     text-align:center;
-    padding:20px 0px 20px 0px;
+    width:100%;
+    padding:24px 0px 40px 0px;
     font-family: 'Nunito', sans-serif;
     font-weight: 400;
-    font-size:54px;
+    font-size:48px;
     color: #e61c5d;
 }

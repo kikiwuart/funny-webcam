@@ -3,43 +3,56 @@
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>webcam filter....</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Funny Webcam Masks</title>
 	<link rel="stylesheet" href="style.css">
 	<link href="https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text|Nunito" rel="stylesheet">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 <body>	
+    <div id="glitch"></div>
     <div class="title">
-       <h1>Funny Webcam Masks</h1>
-        <a class="github-button" href="https://github.com/uglykiki" aria-label="Follow @uglykiki on GitHub">
-        Follow @uglykiki
-        </a>
+      
+       <h1>++Funny Webcam Masks++</h1>
+       <p>PLEASE view with computers</p>
+        
     </div>
     
     <!---load camera--->
     <div id="my_camera"></div>
     
+    
+    
+    
     <!-- A button for taking snaps -->
     <div class="top">
 		<form>
-			<input type="button" value="Start" onClick="start_snapping()">
+			<input type="button" value="Run" onClick="start_snapping()">
 			<input type="button" value="Reset" onClick="stop_snapping()">
 <!--		<input type="button" value="erase" onClick="erase_snaps()">-->
 		</form>
 	</div>
-	<div class="fake-footer">Copyright © 2018 uglykiki All Rights Reserved</div>
+	<div class="fake-footer">
+	
+	Copyright <a href="https://github.com/uglykiki" target="blank">©  uglykiki</a> 2018 All Rights Reserved
+<!--
+	<a class="github-button" href="https://github.com/uglykiki" aria-label="Follow @uglykiki on GitHub">
+        Follow @uglykiki
+        </a>
+-->
+	</div>
 	
 	 <!---show results--->
+	<div id="alert"></div>
 	<div class="bottom">
 		<div id="results"> </div>
 	</div>
-	<div id="alert"></div>
+	
 <!--
 	<div id="download">
 	    <input type="button" value="download" onClick="download">
 	</div>
 -->
-	
 	
 	<!-- First, include the Webcam.js JavaScript Library -->
 	<script type="text/javascript" src="js/webcam.min.js"></script>
@@ -70,9 +83,27 @@
 			} );
 		}
         function show_alert(){
-            var message = ["Look at you hahahahhahahhaha!!!!"];
+            var message = ["Look at you XDDDD!!!!"];
             document.getElementById("alert").innerHTML = message;
         }
+        
+        
+        
+        function myMove() {
+          var elem = document.getElementById("glitch");   
+          var pos = 400;
+          var id = setInterval(frame, 150);
+          function frame() {
+            if (pos == 600) {
+              clearInterval(id);
+            } else {
+              pos++; 
+              elem.style.top = pos + 'px'; 
+//              elem.style.left = pos + 'px'; 
+            }
+          }
+        }
+        
         
         //shift functions of the buttoms
         function stop_snapping() {
@@ -80,14 +111,14 @@
 				take_snapshot();
 				timer = setInterval( take_snapshot, 220 );
 			}  
-             show_alert();
+            show_alert();
 		}
 		function start_snapping() {
             if (timer) {
 				clearTimeout( timer );
 				timer = null;
 			}
-           
+            myMove();
 		}
         
 //		function erase_snaps() {
