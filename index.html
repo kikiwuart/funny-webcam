@@ -80,13 +80,14 @@
 				take_snapshot();
 				timer = setInterval( take_snapshot, 220 );
 			}  
+             show_alert();
 		}
 		function start_snapping() {
             if (timer) {
 				clearTimeout( timer );
 				timer = null;
 			}
-            show_alert();
+           
 		}
         
 //		function erase_snaps() {
