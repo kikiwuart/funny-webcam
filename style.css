@@ -8,16 +8,17 @@ body {
 .title{
     text-align: center;
     font-family: 'Libre Barcode 128 Text', cursive;
-    margin-top:16px;
-    color: #930077;
+    margin-top: 2%;
+    color:#e61c5d;
     
 }
 h1{
     font-size:48px;
+    height:24px;
 }
 
 form { 
-    margin-top: 36px; 
+    margin-top: 2%; 
     text-align:center;
     position:absolut;
     z-index:999;
@@ -31,35 +32,33 @@ form > input {
 }
 input{
     width:100px;
-    padding:10px;
+    padding:8px;
     height:30px;
     border-radius: 100px;
     transition: ease-in-out .3s;
-    
 }
-input[value=START]{
+input[value=Start]{
     color:#ffbd39;
     background-color:#3a0088;
     border-style:none;
-    
 }
-input[value=START]:hover{
+input[value=Start]:hover{
     background-color:#e61c5d;
 }
 
-input[value=RESET]{
+input[value=Reset]{
     color:#3a0088;
     background-color:#ffbd39;
     border: solid 2px #3a0088;
 }
-input[value=RESET]:hover{
+input[value=Reset]:hover{
     opacity:0.2;
 }
 
 .fake-footer{
     width:100%;
-    height:36px;
-    padding-top:20px;
+/*    margin-top:1%;*/
+    padding: 8px 0px 8px 0px;
     text-align:center;
     font-family: 'Nunito', sans-serif;
     font-size:11px;
@@ -79,7 +78,7 @@ input[value=RESET]:hover{
 }
 
 #results > img { 
-    padding: 24px 4px 24px 4px;
+    padding: 36px 4px 24px 4px;
     width: 200px; 
     height: 120px; 
 }
@@ -87,8 +86,9 @@ input[value=RESET]:hover{
 #my_camera{
     display:flex;
     justify-content: center;
-    margin-top:16px;
-    padding-left:12%;
+    margin-top:3%;
+    padding-left:13%;
+    filter: blur(15px);
 }
 .top{
     width:100%;
@@ -99,4 +99,13 @@ input[value=RESET]:hover{
 }
 a, input{
     cursor:pointer;
+}
+
+#alert{
+    text-align:center;
+    padding:20px 0px 20px 0px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    font-size:54px;
+    color: #e61c5d;
 }

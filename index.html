@@ -22,9 +22,9 @@
     <!-- A button for taking snaps -->
     <div class="top">
 		<form>
-			<input type="button" value="START" onClick="start_snapping()">
-			<input type="button" value="RESET" onClick="stop_snapping()">
-<!--			<input type="button" value="reset" onClick="erase_snaps()">-->
+			<input type="button" value="Start" onClick="start_snapping()">
+			<input type="button" value="Reset" onClick="stop_snapping()">
+<!--		<input type="button" value="erase" onClick="erase_snaps()">-->
 		</form>
 	</div>
 	<div class="fake-footer">Copyright © 2018 uglykiki All Rights Reserved</div>
@@ -33,6 +33,12 @@
 	<div class="bottom">
 		<div id="results"> </div>
 	</div>
+	<div id="alert"></div>
+<!--
+	<div id="download">
+	    <input type="button" value="download" onClick="download">
+	</div>
+-->
 	
 	
 	<!-- First, include the Webcam.js JavaScript Library -->
@@ -43,8 +49,8 @@
 		Webcam.set({
 			width: 960,
 			height: 360,
-            dest_width: 960,
-            dest_height:360,
+//          dest_width: 960,
+//          dest_height:360,
 			image_format: 'jpeg',
 			jpeg_quality: 100
 		});
@@ -60,28 +66,32 @@
 				// display results in page
 				var img = new Image();
 				img.src = data_uri;
-				
 				document.getElementById('results').appendChild( img );
 			} );
 		}
-		
-		function start_snapping() {
-			if (!timer) {
+        function show_alert(){
+            var message = ["Look at you hahahahhahahhaha!!!!"];
+            document.getElementById("alert").innerHTML = message;
+        }
+        
+        //shift functions of the buttoms
+        function stop_snapping() {
+            if (!timer) {
 				take_snapshot();
-				timer = setInterval( take_snapshot, 300 );
-			}
+				timer = setInterval( take_snapshot, 220 );
+			}  
 		}
-		
-		function stop_snapping() {
-			if (timer) {
+		function start_snapping() {
+            if (timer) {
 				clearTimeout( timer );
 				timer = null;
 			}
+            show_alert();
 		}
-		
-		function erase_snaps() {
-			document.getElementById('results').innerHTML = '';
-		}
+        
+//		function erase_snaps() {
+//			document.getElementById('results').innerHTML = '';
+//		}
 	</script>
 	
 </body>
