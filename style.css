@@ -3,12 +3,13 @@ body {
 	padding: 0;
 	border: 0;
     font-family: Helvetica, sans-serif; 
-    background-color: hotpink;
+    background-color:#ffbd39;
 }
 .title{
     text-align: center;
     font-family: 'Libre Barcode 128 Text', cursive;
     margin-top:16px;
+    color: #930077;
     
 }
 h1{
@@ -32,14 +33,29 @@ input{
     width:100px;
     padding:10px;
     height:30px;
-    color:hotpink;
-    background-color:black;
     border-radius: 100px;
+    transition: ease-in-out .3s;
+    
+}
+input[value=START]{
+    color:#ffbd39;
+    background-color:#3a0088;
     border-style:none;
+    
 }
-input:hover{
-    color:white;
+input[value=START]:hover{
+    background-color:#e61c5d;
 }
+
+input[value=RESET]{
+    color:#3a0088;
+    background-color:#ffbd39;
+    border: solid 2px #3a0088;
+}
+input[value=RESET]:hover{
+    opacity:0.2;
+}
+
 .fake-footer{
     width:100%;
     height:36px;
@@ -47,34 +63,39 @@ input:hover{
     text-align:center;
     font-family: 'Nunito', sans-serif;
     font-size:11px;
-    color:hotpink;
-    background-color:black;
+    color: #3a0088;
 }
 .bottom{
-    text-align:center;
-    font-size: 24px;
+    text-align:left;
+/*    background-color:black;*/
+    display:flex;
+    justify-content: center;
+    
 }
-#results { 
-    padding:4px;
-    font-family: 'Nunito', sans-serif;
+#results{
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
+
 #results > img { 
-    padding-right:2px;
-    width: 240px; 
-    height: 160px; 
-    margin:0px auto;
+    padding: 24px 4px 24px 4px;
+    width: 200px; 
+    height: 120px; 
 }
+
 #my_camera{
+    display:flex;
+    justify-content: center;
     margin-top:16px;
-    text-align:center;
     padding-left:12%;
 }
 .top{
     width:100%;
     height:80px;
-}
-.bottom{
-    background-color:black;
+    display:flex;
+    justify-content: center;
+    
 }
 a, input{
     cursor:pointer;
