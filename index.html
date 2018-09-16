@@ -68,7 +68,7 @@
         var tracker = new tracking.ObjectTracker('face');
         tracker.setInitialScale(3);
         tracker.setStepSize(4);
-        tracker.setEdgesDensity(0.1);
+        tracker.setEdgesDensity(0.15);
         tracking.track('#video', tracker, { camera: true });
         tracker.on('track', function(event) {
         context.clearRect(0, 0, canvas.width, canvas.height);
