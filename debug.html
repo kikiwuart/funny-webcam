@@ -5,25 +5,34 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Funny Webcam Masks</title>
 	<link rel="stylesheet" href="style.css">
-	<link href="https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text|Nunito" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text|Nunito|Permanent+Marker|Fredoka+One" rel="stylesheet">
+	
+	<!---tracking.js JavaScript Library--->
+	<script src="tracking/tracking-min.js"></script>
+<!--	<script src="tracking/data/face.js"></script>-->
 	
 	<!---include the Webcam.js JavaScript Library--->
 	<script type="text/javascript" src="webcam/webcam.min.js"></script>
-
+	
+	
 </head>
 
 <body>	
     <!---title and introduction--->
     <div class="title">
        <h1>++Funny Webcam Masks++</h1>
-       <p>PLEASE view with computers</p>
+       <p>PLEASE play with computers</p>
     </div>
     
     <!---webcam glitch--->
-    <div id="glitch"></div>
+<!--    <div id="glitch"></div>-->
     
     <!---load webcam--->
-    <div id="my_camera"></div>
+    <div class="demo-container">
+      <video id="video"  preload autoplay loop muted></video>
+      <canvas id="canvas" width="800" height="480" ></canvas>
+    </div>
+<!--    <div id="my_camera"></div>-->
     
     <!---A button for taking snaps--->
     <div class="top">
@@ -45,18 +54,36 @@
 	</div>
 	
 	<!---Configure a few settings and attach camera--->
-	<script language="JavaScript">
-		Webcam.set({
-			width: 960,
-			height: 360,
-			image_format: 'jpeg',
-			jpeg_quality: 100
-		});
-		Webcam.attach( '#my_camera' );
-	</script>
+	
 	
 	<!-- Code to handle taking the snapshot and displaying it locally -->
 	<script language="JavaScript">
+        
+        
+        // track face
+//        window.onload = function() {
+////        var video = document.getElementById('video');
+////        var canvas = document.getElementById('canvas');
+////        var context = canvas.getContext('2d');
+//        var tracker = new tracking.ObjectTracker('face');
+//
+//        tracking.track('#video', tracker, { camera: true });
+//
+//        var gui = new dat.GUI();
+//            gui.add(tracker, 'edgesDensity', 0.1, 0.5).step(0.01);
+//            gui.add(tracker, 'initialScale', 1.0, 10.0).step(0.1);
+//            gui.add(tracker, 'stepSize', 1, 5).step(0.1);
+//        }
+        
+        // load webcam
+        Webcam.set({
+			width: 720,
+			height: 380,
+			image_format: 'jpeg',
+			jpeg_quality: 100
+		});
+		Webcam.attach( '#video' );
+        
 		var timer = null;
 		function take_snapshot() {
 			// take snapshot and get image data
@@ -68,22 +95,23 @@
 			} );
 		}
         //show webcam glitch
-        function myMove() {
-          var elem = document.getElementById('glitch');   
-          var pos = 400; //beginning point
-          var id = setInterval(frame, 150);
-          function frame() {
-            if (pos == 600) { //ending point
-              clearInterval(id);
-            } else {
-              pos++; 
-              elem.style.top = pos + 'px'; //vertical movement
-            }
-          }
-        }
+//        function myMove() {
+//          var elem = document.getElementById('glitch');   
+//          var pos = 400; //beginning point
+//          var id = setInterval(frame, 150);
+//          function frame() {
+//            if (pos == 600) { //ending point
+//              clearInterval(id);
+//            } else {
+//              pos++; 
+//              elem.style.top = pos + 'px'; //vertical movement
+//            }
+//          }
+//        }
+        
         //show alert
         function show_alert(){
-            var message = ["Look at you XDDDD!!!!"];
+            var message = ["look at you dumb faceXDDD"];
             document.getElementById('alert').innerHTML = message;
         }
         
@@ -91,7 +119,7 @@
         function stop_snapping() {
             if (!timer) {
 				take_snapshot();
-				timer = setInterval( take_snapshot, 220 );
+				timer = setInterval( take_snapshot, 50 );
 			}  
             show_alert();
 		}
@@ -100,12 +128,8 @@
 				clearTimeout( timer );
 				timer = null;
 			}
-            myMove(); //show webcam glitch
+//            myMove(); //show webcam glitch
 		}
-        
-//		function erase_snaps() {
-//			document.getElementById('results').innerHTML = '';
-//		}
 	</script>
 </body>
 </html>
