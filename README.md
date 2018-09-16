@@ -1,8 +1,9 @@
 # Webcam Note
-This is a fake Webcam mask generator using [Webcam.js API](https://pixlcore.com/read/WebcamJS) and[tracking.js API](http://127.0.0.1:51288/test.html)
+This is a fake Webcam mask generator using [Webcam.js](https://pixlcore.com/read/WebcamJS) and[tracking.js](https://trackingjs.com/)
 
-* Please allow webcam!!!
+<b>Please allow webcam!!!</b>
+![screenshot01](/images/screenshot01.png)
 
+I built a camera mask playgame and shit the functions of "Run" and "Reset" buttons, so the users will get super confused.
 
-I built a camera mask playgame and shit the functions of "run" and "reset" buttons, so users will get confused.
 Enjoy the glitch and see your dumb dumb face!!!
