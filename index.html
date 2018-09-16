@@ -1,77 +1,101 @@
 <!doctype html>
-
-<html lang="en">
+<html lang="eng">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Funny Webcam Masks</title>
 	<link rel="stylesheet" href="style.css">
-	<link href="https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text|Nunito" rel="stylesheet">
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text|Nunito|Permanent+Marker|Fredoka+One" rel="stylesheet">
+	
+	<!---tracking.js JavaScript Library--->
+	<script src="tracking/tracking-min.js"></script>
+	<script src="tracking/data/face.js"></script>
+    <script src="tracking/data/eye.js"></script>
+    <script src="tracking/data/mouth.js"></script>
+	
+	<!---include the Webcam.js JavaScript Library--->
+	<script type="text/javascript" src="webcam/webcam.min.js"></script>
+	
+	
 </head>
+
 <body>	
-    <div id="glitch"></div>
+    <!---title and introduction--->
     <div class="title">
-      
        <h1>++Funny Webcam Masks++</h1>
-       <p>PLEASE view with computers</p>
-        
+       <p>PLEASE play with computers</p>
     </div>
     
-    <!---load camera--->
-    <div id="my_camera"></div>
+    <!---webcam glitch--->
+<!--    <div id="glitch"></div>-->
     
+    <!---load webcam--->
+    <div class="demo-container">
+      <video id="video"  preload autoplay loop muted></video>
+      <canvas id="canvas" width="800" height="480" ></canvas>
+    </div>
+<!--    <div id="my_camera"></div>-->
     
-    
-    
-    <!-- A button for taking snaps -->
+    <!---A button for taking snaps--->
     <div class="top">
 		<form>
 			<input type="button" value="Run" onClick="start_snapping()">
 			<input type="button" value="Reset" onClick="stop_snapping()">
-<!--		<input type="button" value="erase" onClick="erase_snaps()">-->
 		</form>
 	</div>
-	<div class="fake-footer">
 	
+	<!---copywight--->
+	<div class="fake-footer">
 	Copyright <a href="https://github.com/uglykiki" target="blank">©  uglykiki</a> 2018 All Rights Reserved
-<!--
-	<a class="github-button" href="https://github.com/uglykiki" aria-label="Follow @uglykiki on GitHub">
-        Follow @uglykiki
-        </a>
--->
 	</div>
 	
-	 <!---show results--->
+    <!---show results--->
 	<div id="alert"></div>
 	<div class="bottom">
 		<div id="results"> </div>
 	</div>
 	
-<!--
-	<div id="download">
-	    <input type="button" value="download" onClick="download">
-	</div>
--->
+	<!---Configure a few settings and attach camera--->
 	
-	<!-- First, include the Webcam.js JavaScript Library -->
-	<script type="text/javascript" src="js/webcam.min.js"></script>
-	
-	<!-- Configure a few settings and attach camera -->
-	<script language="JavaScript">
-		Webcam.set({
-			width: 960,
-			height: 360,
-//          dest_width: 960,
-//          dest_height:360,
-			image_format: 'jpeg',
-			jpeg_quality: 100
-		});
-		Webcam.attach( '#my_camera' );
-	</script>
 	
 	<!-- Code to handle taking the snapshot and displaying it locally -->
 	<script language="JavaScript">
+        // track face
+        window.onload = function() {
+//        var video = document.getElementById('video');
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+        var tracker = new tracking.ObjectTracker('face');
+        tracker.setInitialScale(3);
+        tracker.setStepSize(4);
+        tracker.setEdgesDensity(0.1);
+        tracking.track('#video', tracker, { camera: true });
+        tracker.on('track', function(event) {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        event.data.forEach(function(rect) {
+            context.strokeStyle = '#e61c5d';
+            context.strokeRect(rect.x, rect.y, rect.width, rect.height);
+            context.font = '12px Nunito';
+            context.fillStyle = "#fff";
+            context.fillText('x: ' + rect.x + 'px', rect.x + rect.width + 5, rect.y + 11);
+            context.fillText('y: ' + rect.y + 'px', rect.x + rect.width + 5, rect.y + 22);
+            });
+        });
+        var gui = new dat.GUI();
+            gui.add(tracker, 'edgesDensity', 0.1, 0.5).step(0.01);
+            gui.add(tracker, 'initialScale', 1.0, 10.0).step(0.1);
+            gui.add(tracker, 'stepSize', 1, 5).step(0.1);
+        }
+        
+        // load webcam
+        Webcam.set({
+			width: 720,
+			height: 380,
+			image_format: 'jpeg',
+			jpeg_quality: 100
+		});
+		Webcam.attach( '#video' );
+        
 		var timer = null;
 		function take_snapshot() {
 			// take snapshot and get image data
@@ -82,34 +106,32 @@
 				document.getElementById('results').appendChild( img );
 			} );
 		}
+        //show webcam glitch
+//        function myMove() {
+//          var elem = document.getElementById('glitch');   
+//          var pos = 400; //beginning point
+//          var id = setInterval(frame, 150);
+//          function frame() {
+//            if (pos == 600) { //ending point
+//              clearInterval(id);
+//            } else {
+//              pos++; 
+//              elem.style.top = pos + 'px'; //vertical movement
+//            }
+//          }
+//        }
+        
+        //show alert
         function show_alert(){
-            var message = ["Look at you XDDDD!!!!"];
-            document.getElementById("alert").innerHTML = message;
+            var message = ["look at you dumb faceXDDD"];
+            document.getElementById('alert').innerHTML = message;
         }
         
-        
-        
-        function myMove() {
-          var elem = document.getElementById("glitch");   
-          var pos = 400;
-          var id = setInterval(frame, 150);
-          function frame() {
-            if (pos == 600) {
-              clearInterval(id);
-            } else {
-              pos++; 
-              elem.style.top = pos + 'px'; 
-//              elem.style.left = pos + 'px'; 
-            }
-          }
-        }
-        
-        
-        //shift functions of the buttoms
+        //shift functions of "Run" and "Reset"
         function stop_snapping() {
             if (!timer) {
 				take_snapshot();
-				timer = setInterval( take_snapshot, 220 );
+				timer = setInterval( take_snapshot, 200 );
 			}  
             show_alert();
 		}
@@ -118,13 +140,8 @@
 				clearTimeout( timer );
 				timer = null;
 			}
-            myMove();
+//            myMove(); //show webcam glitch
 		}
-        
-//		function erase_snaps() {
-//			document.getElementById('results').innerHTML = '';
-//		}
 	</script>
-	
 </body>
 </html>

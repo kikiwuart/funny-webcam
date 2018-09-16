@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="eng">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Funny Webcam Masks</title>
+	<link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text|Nunito" rel="stylesheet">
+	
+	<!---include the Webcam.js JavaScript Library--->
+	<script type="text/javascript" src="webcam/webcam.min.js"></script>
+
+</head>
+
+<body>	
+    <!---title and introduction--->
+    <div class="title">
+       <h1>++Funny Webcam Masks++</h1>
+       <p>PLEASE view with computers</p>
+    </div>
+    
+    <!---webcam glitch--->
+    <div id="glitch"></div>
+    
+    <!---load webcam--->
+    <div id="my_camera"></div>
+    
+    <!---A button for taking snaps--->
+    <div class="top">
+		<form>
+			<input type="button" value="Run" onClick="start_snapping()">
+			<input type="button" value="Reset" onClick="stop_snapping()">
+		</form>
+	</div>
+	
+	<!---copywight--->
+	<div class="fake-footer">
+	Copyright <a href="https://github.com/uglykiki" target="blank">©  uglykiki</a> 2018 All Rights Reserved
+	</div>
+	
+    <!---show results--->
+	<div id="alert"></div>
+	<div class="bottom">
+		<div id="results"> </div>
+	</div>
+	
+	<!---Configure a few settings and attach camera--->
+	<script language="JavaScript">
+		Webcam.set({
+			width: 960,
+			height: 360,
+			image_format: 'jpeg',
+			jpeg_quality: 100
+		});
+		Webcam.attach( '#my_camera' );
+	</script>
+	
+	<!-- Code to handle taking the snapshot and displaying it locally -->
+	<script language="JavaScript">
+		var timer = null;
+		function take_snapshot() {
+			// take snapshot and get image data
+			Webcam.snap( function(data_uri) {
+				// display results in page
+				var img = new Image();
+				img.src = data_uri;
+				document.getElementById('results').appendChild( img );
+			} );
+		}
+        //show webcam glitch
+        function myMove() {
+          var elem = document.getElementById('glitch');   
+          var pos = 400; //beginning point
+          var id = setInterval(frame, 150);
+          function frame() {
+            if (pos == 600) { //ending point
+              clearInterval(id);
+            } else {
+              pos++; 
+              elem.style.top = pos + 'px'; //vertical movement
+            }
+          }
+        }
+        //show alert
+        function show_alert(){
+            var message = ["Look at you XDDDD!!!!"];
+            document.getElementById('alert').innerHTML = message;
+        }
+        
+        //shift functions of "Run" and "Reset"
+        function stop_snapping() {
+            if (!timer) {
+				take_snapshot();
+				timer = setInterval( take_snapshot, 220 );
+			}  
+            show_alert();
+		}
+		function start_snapping() {
+            if (timer) {
+				clearTimeout( timer );
+				timer = null;
+			}
+            myMove(); //show webcam glitch
+		}
+        
+//		function erase_snaps() {
+//			document.getElementById('results').innerHTML = '';
+//		}
+	</script>
+</body>
+</html>
