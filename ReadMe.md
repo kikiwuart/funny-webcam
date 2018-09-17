@@ -5,10 +5,9 @@
 - Year: 2018
 
 ## About This project
-The idea of this project came from a class that everyone uses their webcam to test AR works. It looks so funny that they tried different angles to get the AR objects shown but fail. This made me think, <b>"What if there's nothing gonna show up?"</b> People easily follow rules without thinking why, so I decided to build a <b>fake</b> webcam masks generator using [Webcam.js](https://pixlcore.com/read/WebcamJS)(open webcam and take screenshots) and[tracking.js](https://trackingjs.com/)(webcam face tracking), then I <b>shifted the functions of two main buttons "Run" and "Rest"</b>, which secretly <b>takes screenshots</b>.
+The idea of this project came from a class that everyone uses their webcams to test AR works. It looks so funny that they tries different angles to get the AR objects shown but fail. This made me think, <b>"What if there's nothing gonna show up?"</b> 
 
-This project 
-
+People easily follow rules without thinking why, so I decided to build a <b>fake</b> webcam masks generator using [Webcam.js](https://pixlcore.com/read/WebcamJS)(open webcam and take screenshots) and[tracking.js](https://trackingjs.com/)(webcam face tracking), then I <b>shifted the functions of two main buttons "Run" and "Rest"</b>, which secretly <b>takes screenshots</b>. The simple glitch would challenges what we used to think of user interface and buttons.
 
 ### Step 1. Be interested
 Please allow webcam!!! 
