@@ -1,89 +1,64 @@
 <!doctype html>
-<html lang="eng">
+
+<html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Funny Webcam Masks</title>
 	<link rel="stylesheet" href="style.css">
 	<link href="https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text|Nunito|Permanent+Marker|Fredoka+One" rel="stylesheet">
-	
-	<!---tracking.js JavaScript Library--->
-	<script src="tracking/tracking-min.js"></script>
-<!--	<script src="tracking/data/face.js"></script>-->
-	
-	<!---include the Webcam.js JavaScript Library--->
+	<!-- First, include the Webcam.js JavaScript Library -->
 	<script type="text/javascript" src="webcam/webcam.min.js"></script>
-	
-	
 </head>
 
 <body>	
-    <!---title and introduction--->
+    <div id="glitch"></div>
     <div class="title">
+      
        <h1>++Funny Webcam Masks++</h1>
-       <p>PLEASE play with computers</p>
+       <p>PLEASE view with computers</p>
+        
     </div>
     
-    <!---webcam glitch--->
-<!--    <div id="glitch"></div>-->
-    
-    <!---load webcam--->
+    <!---load camera--->
     <div class="demo-container">
-      <video id="video"  preload autoplay loop muted></video>
-      <canvas id="canvas" width="800" height="480" ></canvas>
+        <div id="my_camera"></div>
     </div>
-<!--    <div id="my_camera"></div>-->
-    
-    <!---A button for taking snaps--->
+
+    <!-- A button for taking snaps -->
     <div class="top">
 		<form>
 			<input type="button" value="Run" onClick="start_snapping()">
 			<input type="button" value="Reset" onClick="stop_snapping()">
+<!--		<input type="button" value="erase" onClick="erase_snaps()">-->
 		</form>
 	</div>
-	
-	<!---copywight--->
 	<div class="fake-footer">
 	Copyright <a href="https://github.com/uglykiki" target="blank">©  uglykiki</a> 2018 All Rights Reserved
 	</div>
 	
-    <!---show results--->
+	 <!---show results--->
 	<div id="alert"></div>
 	<div class="bottom">
 		<div id="results"> </div>
 	</div>
+
 	
-	<!---Configure a few settings and attach camera--->
-	
-	
-	<!-- Code to handle taking the snapshot and displaying it locally -->
+	<!-- Configure a few settings and attach camera -->
 	<script language="JavaScript">
-        
-        
-        // track face
-//        window.onload = function() {
-////        var video = document.getElementById('video');
-////        var canvas = document.getElementById('canvas');
-////        var context = canvas.getContext('2d');
-//        var tracker = new tracking.ObjectTracker('face');
-//
-//        tracking.track('#video', tracker, { camera: true });
-//
-//        var gui = new dat.GUI();
-//            gui.add(tracker, 'edgesDensity', 0.1, 0.5).step(0.01);
-//            gui.add(tracker, 'initialScale', 1.0, 10.0).step(0.1);
-//            gui.add(tracker, 'stepSize', 1, 5).step(0.1);
-//        }
-        
-        // load webcam
-        Webcam.set({
-			width: 720,
-			height: 380,
+		Webcam.set({
+			width: 960,
+			height: 360,
+//          dest_width: 960,
+//          dest_height:360,
 			image_format: 'jpeg',
 			jpeg_quality: 100
 		});
-		Webcam.attach( '#video' );
-        
+		Webcam.attach( '#my_camera' );
+	</script>
+	
+	<!-- Code to handle taking the snapshot and displaying it locally -->
+	<script language="JavaScript">
 		var timer = null;
 		function take_snapshot() {
 			// take snapshot and get image data
@@ -94,32 +69,32 @@
 				document.getElementById('results').appendChild( img );
 			} );
 		}
-        //show webcam glitch
-//        function myMove() {
-//          var elem = document.getElementById('glitch');   
-//          var pos = 400; //beginning point
-//          var id = setInterval(frame, 150);
-//          function frame() {
-//            if (pos == 600) { //ending point
-//              clearInterval(id);
-//            } else {
-//              pos++; 
-//              elem.style.top = pos + 'px'; //vertical movement
-//            }
-//          }
-//        }
-        
-        //show alert
         function show_alert(){
-            var message = ["look at you dumb faceXDDD"];
-            document.getElementById('alert').innerHTML = message;
+            var message = ["Look at you XDDDD!!!!"];
+            document.getElementById("alert").innerHTML = message;
         }
         
-        //shift functions of "Run" and "Reset"
+        //fack glitch
+        function myMove() {
+          var elem = document.getElementById("glitch");   
+          var pos = 400;
+          var id = setInterval(frame, 150);
+          function frame() {
+            if (pos == 600) {
+              clearInterval(id);
+            } else {
+              pos++; 
+              elem.style.top = pos + 'px'; 
+//              elem.style.left = pos + 'px'; 
+            }
+          }
+        }
+        
+        //shift functions of the buttoms
         function stop_snapping() {
             if (!timer) {
 				take_snapshot();
-				timer = setInterval( take_snapshot, 50 );
+				timer = setInterval( take_snapshot, 220 );
 			}  
             show_alert();
 		}
@@ -128,8 +103,10 @@
 				clearTimeout( timer );
 				timer = null;
 			}
-//            myMove(); //show webcam glitch
+            myMove();//show fake glitch
 		}
+
 	</script>
+	
 </body>
 </html>
