@@ -44,6 +44,7 @@ BTW I didn't mind the mobile version, but it still can runs on <b>Android phones
 I also built a lighter [debug version](https://uglykiki.github.io/funny-webcam/debug.html) and modify some functions, such as webcam filter and glitch. 
 
 Press "Run" then you will see a repeated glitch. 
+![screenshot04](/images/screenshot04.png)
 
 
 
