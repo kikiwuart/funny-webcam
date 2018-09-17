@@ -156,8 +156,6 @@ a, input{
 #my_camera{
     filter: invert(100%);
     margin-top:36px;
-    border: solid 8px #742dd2;
-    border-radius: 40px;
 }
 
 #glitch{

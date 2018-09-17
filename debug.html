@@ -14,10 +14,8 @@
 <body>	
     <div id="glitch"></div>
     <div class="title">
-      
        <h1>++Funny Webcam Masks++</h1>
-       <p>PLEASE view with computers</p>
-        
+       <p>PLEASE view with computers</p>  
     </div>
     
     <!---load camera--->
@@ -30,19 +28,17 @@
 		<form>
 			<input type="button" value="Run" onClick="start_snapping()">
 			<input type="button" value="Reset" onClick="stop_snapping()">
-<!--		<input type="button" value="erase" onClick="erase_snaps()">-->
 		</form>
 	</div>
 	<div class="fake-footer">
-	Copyright <a href="https://github.com/uglykiki" target="blank">©  uglykiki</a> 2018 All Rights Reserved
+	Copyright <a href="https://github.com/uglykiki" target="blank">© uglykiki</a> 2018 All Rights Reserved
 	</div>
 	
 	 <!---show results--->
 	<div id="alert"></div>
 	<div class="bottom">
-		<div id="results"> </div>
+		<div id="results"></div>
 	</div>
-
 	
 	<!-- Configure a few settings and attach camera -->
 	<script language="JavaScript">
@@ -98,6 +94,7 @@
 			}  
             show_alert();
 		}
+        
 		function start_snapping() {
             if (timer) {
 				clearTimeout( timer );
