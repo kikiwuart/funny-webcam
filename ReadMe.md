@@ -12,6 +12,8 @@ The idea of this project came from a class that everyone uses their webcams to t
 
 People easily follow rules without thinking why, so I decided to build a <b>fake</b> webcam masks generator using [Webcam.js](https://pixlcore.com/read/WebcamJS)(open webcam and take screenshots) and[tracking.js](https://trackingjs.com/)(webcam face tracking), then I <b>shifted the functions of two main buttons "Run" and "Rest"</b>, which secretly <b>takes screenshots</b>. The simple glitch would challenges what we used to think of user interface and buttons.
 
+## Reactions of users
+
 ### Step 1. Be interested
 Please allow webcam!!! 
 ![screenshot01](/images/screenshot01.png)
