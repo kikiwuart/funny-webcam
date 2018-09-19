@@ -26,15 +26,11 @@
        <p>PLEASE play with computers</p>
     </div>
     
-    <!---webcam glitch--->
-<!--    <div id="glitch"></div>-->
-    
     <!---load webcam--->
     <div class="demo-container">
       <video id="video"  preload autoplay loop muted></video>
       <canvas id="canvas" width="800" height="480" ></canvas>
     </div>
-<!--    <div id="my_camera"></div>-->
     
     <!---A button for taking snaps--->
     <div class="top">
@@ -54,8 +50,6 @@
 	<div class="bottom">
 		<div id="results"> </div>
 	</div>
-	
-	<!---Configure a few settings and attach camera--->
 	
 	
 	<!-- Code to handle taking the snapshot and displaying it locally -->
@@ -106,20 +100,6 @@
 				document.getElementById('results').appendChild( img );
 			} );
 		}
-        //show webcam glitch
-//        function myMove() {
-//          var elem = document.getElementById('glitch');   
-//          var pos = 400; //beginning point
-//          var id = setInterval(frame, 150);
-//          function frame() {
-//            if (pos == 600) { //ending point
-//              clearInterval(id);
-//            } else {
-//              pos++; 
-//              elem.style.top = pos + 'px'; //vertical movement
-//            }
-//          }
-//        }
         
         //show alert
         function show_alert(){
@@ -140,7 +120,6 @@
 				clearTimeout( timer );
 				timer = null;
 			}
-//            myMove(); //show webcam glitch
 		}
 	</script>
 </body>
