@@ -35,6 +35,7 @@ Like this guy, he had kept taking screenshots for over 3 minutes and still could
 BTW I didn't mind the mobile version, but it still can runs on <b>Android phones</b> (it fails on iPhone)
 ![user01](/images/user-screenshot/01.JPG) 
 ![user03](/images/user-screenshot/03.JPG)
+![user07](/images/user-screenshot/07.jpg)
 
 
 
