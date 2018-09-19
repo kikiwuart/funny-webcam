@@ -1,4 +1,7 @@
 # Funny Webcam Masks Generator
+Visit here: [Funny Webcam Masks](https://uglykiki.github.io/funny-webcam/)
+or [debug version](https://uglykiki.github.io/funny-webcam/debug.html)
+
 - Title: Funny Webcam Masks Generator
 - Media: Website, screenshots
 - Dimension: Website 1280px * 600px
