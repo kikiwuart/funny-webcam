@@ -1,4 +1,7 @@
 # Funny Webcam Masks Generator
+Visit here: [Funny Webcam Masks](https://uglykiki.github.io/funny-webcam/)
+or [debug version](https://uglykiki.github.io/funny-webcam/debug.html)
+
 - Title: Funny Webcam Masks Generator
 - Media: Website, screenshots
 - Dimension: Website 1280px * 600px
@@ -8,6 +11,8 @@
 The idea of this project came from a class that everyone uses their webcams to test AR works. It looks so funny that they tries different angles to get the AR objects shown but fail. This made me think, <b>"What if there's nothing gonna show up?"</b> 
 
 People easily follow rules without thinking why, so I decided to build a <b>fake</b> webcam masks generator using [Webcam.js](https://pixlcore.com/read/WebcamJS)(open webcam and take screenshots) and[tracking.js](https://trackingjs.com/)(webcam face tracking), then I <b>shifted the functions of two main buttons "Run" and "Rest"</b>, which secretly <b>takes screenshots</b>. The simple glitch would challenges what we used to think of user interface and buttons.
+
+## Reactions of users
 
 ### Step 1. Be interested
 Please allow webcam!!! 
@@ -35,6 +40,7 @@ Like this guy, he had kept taking screenshots for over 3 minutes and still could
 BTW I didn't mind the mobile version, but it still can runs on <b>Android phones</b> (it fails on iPhone)
 ![user01](/images/user-screenshot/01.JPG) 
 ![user03](/images/user-screenshot/03.JPG)
+![user07](/images/user-screenshot/07.jpg)
 
 
 
