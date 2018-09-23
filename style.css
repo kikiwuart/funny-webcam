@@ -38,7 +38,7 @@ p{
 #video{
     z-index:999;
     position: absolute;
-    filter:contrast(150%);
+    filter:contrast(170%);
     border: solid 8px #742dd2;
     border-radius: 40px;
     padding:12px;
