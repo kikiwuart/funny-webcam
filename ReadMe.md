@@ -3,9 +3,10 @@ Visit here: [Funny Webcam Masks](https://uglykiki.github.io/funny-webcam/)
 or [debug version](https://uglykiki.github.io/funny-webcam/debug.html)
 
 - Title: Funny Webcam Masks Generator
+- Year: 2018
 - Media: Website, screenshots
 - Dimension: Website 1280px * 600px
-- Year: 2018
+
 
 ## About This project
 The idea of this project came from a class that everyone uses their webcams to test AR works. It looks so funny that they tries different angles to get the AR objects shown but fail. This made me think, <b>"What if there's nothing gonna show up?"</b> 
